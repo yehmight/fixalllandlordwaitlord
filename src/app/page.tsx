@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function RegisterPage() {
+  // Removed submitted and setSubmitted
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,26 +17,7 @@ export default function RegisterPage() {
     comments: '',
   })
 
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const res = await fetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-    if (res.ok) {
-      setSubmitted(true)
-    } else {
-      alert('Something went wrong. Try again.')
-    }
-  }
+  // Removed handleChange and handleSubmit
 
   return (
     <main className="relative min-h-screen text-white">
@@ -53,17 +35,6 @@ export default function RegisterPage() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col justify-between px-4 py-6">
         {/* Header */}
-        {/* <header className="flex justify-between items-center py-4 max-w-6xl mx-auto">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={140}
-            height={40}
-            className="object-contain"
-          />
-        </header> */}
-
-        {/* Header */}
         <header className="w-full flex items-center justify-between px-6 py-4 bg-white/80 shadow-sm">
           <div>
             <Image
@@ -75,61 +46,48 @@ export default function RegisterPage() {
           </div>
           <nav className="space-x-6 text-gray-700 text-sm font-medium">
             <Link href="/register" className="hover:text-blue-500">Join Waitlist</Link>
-            
           </nav>
         </header>
 
         <div className="relative min-h-screen bg-[#0F254F] text-white px-4 py-16 flex items-center justify-center">
-      {/* Background Image Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dmle9na5b/image/upload/v1754662099/photo-1529506711032-973f0b98912b_mbhca6.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-[#0F254F]/90"></div>
-      </div>
+          {/* Background Image Overlay */}
+          <div
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{
+              backgroundImage:
+                "url('https://res.cloudinary.com/dmle9na5b/image/upload/v1754662099/photo-1529506711032-973f0b98912b_mbhca6.jpg')",
+            }}
+          >
+            <div className="absolute inset-0 bg-[#0F254F]/90"></div>
+          </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-3xl text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6">About FixAll Landlord</h1>
+          {/* Content */}
+          <div className="relative z-10 max-w-3xl text-center">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-6">About FixAll Landlord</h1>
 
-        <p className="text-white text-base sm:text-lg">
-        For this Nigeria, house agents dey give wahala ,dem go chop rent, hide bills, leave house to
-        spoil, or give tenant wey no get sense. If you dey abroad, wahala go double because you no fit
-        check wetin dey happen. But with FixAll Landlord, everything go change. This platform na
-        FixAll Africa build am. We go: Help you list your house clean and straight Connect you with
-        verified tenants Use 3D preview so tenant fit see house before rent Make sure you go dey
-        collect your rent and bills directly ,no middleman Help you see your house anytime,
-        from anywhere you dey And we go maintain the house using our trusted artisans across
-        Nigeria This one no be normal agent setup o. FixAll Africa go stand in as your caretaker. We
-        dey responsible for your house like say na our own. If you wan peace of mind and full control,
-        join the waitlist today.
-        </p> <br></br>
-        <Link
+            <p className="text-white text-base sm:text-lg">
+              For this Nigeria, house agents dey give wahala ,dem go chop rent, hide bills, leave house to
+              spoil, or give tenant wey no get sense. If you dey abroad, wahala go double because you no fit
+              check wetin dey happen. But with FixAll Landlord, everything go change. This platform na
+              FixAll Africa build am. We go: Help you list your house clean and straight Connect you with
+              verified tenants Use 3D preview so tenant fit see house before rent Make sure you go dey
+              collect your rent and bills directly ,no middleman Help you see your house anytime,
+              from anywhere you dey And we go maintain the house using our trusted artisans across
+              Nigeria This one no be normal agent setup o. FixAll Africa go stand in as your caretaker. We
+              dey responsible for your house like say na our own. If you wan peace of mind and full control,
+              join the waitlist today.
+            </p> <br></br>
+            <Link
               href="/register"
               className="inline-block px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-200"
             >
               Join Early Access Waitlist
             </Link>
-      </div>
-      
-  
-    </div>
-        
-    {/* <div className="flex justify-center mt-6">
-      <Link
-        href="/register"
-        className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-200 text-sm sm:text-base"
-      >
-        Join Early Access Waitlist
-      </Link>
-  </div> */}
-        
+          </div>
+        </div>
 
-         {/* Footer */}
-         <footer className="bg-[#0F254F] text-white py-4 text-center text-sm mt-6">
+        {/* Footer */}
+        <footer className="bg-[#0F254F] text-white py-4 text-center text-sm mt-6">
           &copy; 2025 Powered by{' '}
           <a href="https://fixallafrica.com" className="underline hover:text-blue-400">
             Fixall Africa
@@ -140,6 +98,7 @@ export default function RegisterPage() {
     </main>
   )
 }
+
 
 
 
