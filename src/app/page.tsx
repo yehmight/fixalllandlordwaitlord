@@ -6,16 +6,16 @@ import Link from 'next/link'
 
 export default function RegisterPage() {
   // Removed submitted and setSubmitted
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    role: '',
-    properties: '',
-    city: '',
-    contactMethod: '',
-    comments: '',
-  })
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   role: '',
+  //   properties: '',
+  //   city: '',
+  //   contactMethod: '',
+  //   comments: '',
+  // })
 
   // Removed handleChange and handleSubmit
 
