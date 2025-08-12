@@ -28,7 +28,7 @@ export default function RegisterPage() {
   }
 
   const validate = () => {
-    let newErrors: { [key: string]: string } = {}
+    const newErrors: { [key: string]: string } = {}
 
     // Name: 3–20 chars
     if (formData.name.trim().length < 3 || formData.name.trim().length > 20) {
