@@ -55,7 +55,7 @@ export default function RegisterPage() {
     // Properties: number between 1 and 100
     const propsNum = Number(formData.properties)
     if (isNaN(propsNum) || propsNum < 1 || propsNum > 100) {
-      newErrors.properties = 'Number of properties must be between 1 and 3'
+      newErrors.properties = 'Number of properties must be between 1 and 100'
     }
 
     // City: required
